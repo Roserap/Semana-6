@@ -1,0 +1,59 @@
+//Usando Queue<String> fila = new LinkedList<>();
+//a) Adicione 4 pessoas à fila
+//b) Mostre quem é o próximo da fila (peek)
+//c) Atenda 2 pessoas usando poll()
+//d) Exiba a fila restante
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class FilaAtendimento {
+    public static void main(String[] args) {
+        // Criar a Queue usando LinkedList
+        Queue<String> fila = new LinkedList<>();
+        
+        // a) Adicionar 4 pessoas à fila
+        System.out.println("=== Adicionando pessoas à fila ===");
+        fila.add("Carlos");
+        fila.add("Beatriz");
+        fila.add("Daniel");
+        fila.add("Fernanda");
+        System.out.println("Fila inicial: " + fila);
+        System.out.println("Total de pessoas na fila: " + fila.size());
+        
+        // b) Mostrar quem é o próximo da fila (peek)
+        System.out.println("\n=== Consultando o próximo da fila ===");
+        String proximo = fila.peek();
+        System.out.println("Próximo a ser atendido: " + proximo);
+        System.out.println("Fila após peek: " + fila);
+        System.out.println("Tamanho da fila: " + fila.size());
+        System.out.println("(peek não remove da fila)");
+        
+        // c) Atender 2 pessoas usando poll()
+        System.out.println("\n=== Atendendo 2 pessoas ===");
+        String pessoa1 = fila.poll();
+        System.out.println("1ª pessoa atendida: " + pessoa1);
+        System.out.println("Fila atual: " + fila);
+        
+        String pessoa2 = fila.poll();
+        System.out.println("2ª pessoa atendida: " + pessoa2);
+        System.out.println("Fila atual: " + fila);
+        
+        // d) Exibir a fila restante
+        System.out.println("\n=== FILA RESTANTE ===");
+        System.out.println("Pessoas ainda na fila: " + fila);
+        System.out.println("Total restante: " + fila.size());
+        
+        System.out.println("\n=== Ordem de atendimento restante ===");
+        int posicao = 1;
+        for (String pessoa : fila) {
+            System.out.println(posicao + "º na fila: " + pessoa);
+            posicao++;
+        }
+        
+        // Informação adicional
+        if (!fila.isEmpty()) {
+            System.out.println("\nPróximo a ser atendido: " + fila.peek());
+        }
+    }
+}
