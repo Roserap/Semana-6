@@ -1,0 +1,68 @@
+//Crie uma fila de pedidos:
+//"Pedido #1", "Pedido #2", "Pedido #3"
+//Realize:
+//a) Adicione o "Pedido #4"
+//b) Atenda dois pedidos
+//c) Mostre o tamanho da fila
+//d) Informe se a fila está vazia
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class FilaPedidos {
+    public static void main(String[] args) {
+        // Criar a Queue de pedidos
+        Queue<String> pedidos = new LinkedList<>();
+        
+        // Adicionar os pedidos iniciais
+        System.out.println("=== Criando fila de pedidos ===");
+        pedidos.add("Pedido #1");
+        pedidos.add("Pedido #2");
+        pedidos.add("Pedido #3");
+        System.out.println("Fila inicial: " + pedidos);
+        System.out.println("Tamanho: " + pedidos.size());
+        
+        // a) Adicionar o "Pedido #4"
+        System.out.println("\n=== Adicionando Pedido #4 ===");
+        pedidos.add("Pedido #4");
+        System.out.println("Fila após adicionar: " + pedidos);
+        System.out.println("Tamanho: " + pedidos.size());
+        
+        // b) Atender dois pedidos
+        System.out.println("\n=== Atendendo dois pedidos ===");
+        String pedido1 = pedidos.poll();
+        System.out.println("Atendido: " + pedido1);
+        System.out.println("Fila atual: " + pedidos);
+        
+        String pedido2 = pedidos.poll();
+        System.out.println("Atendido: " + pedido2);
+        System.out.println("Fila atual: " + pedidos);
+        
+        // c) Mostrar o tamanho da fila
+        System.out.println("\n=== Tamanho da fila ===");
+        int tamanho = pedidos.size();
+        System.out.println("Quantidade de pedidos na fila: " + tamanho);
+        
+        // d) Informar se a fila está vazia
+        System.out.println("\n=== Verificando se a fila está vazia ===");
+        boolean vazia = pedidos.isEmpty();
+        System.out.println("A fila está vazia? " + vazia);
+        
+        // Resumo final
+        System.out.println("\n=== RESUMO FINAL ===");
+        System.out.println("Pedidos restantes: " + pedidos);
+        System.out.println("Total na fila: " + pedidos.size());
+        
+        if (!pedidos.isEmpty()) {
+            System.out.println("Próximo pedido a ser atendido: " + pedidos.peek());
+        }
+        
+        // Extra: Exibir todos os pedidos pendentes
+        System.out.println("\n=== Pedidos pendentes ===");
+        int contador = 1;
+        for (String pedido : pedidos) {
+            System.out.println(contador + ". " + pedido);
+            contador++;
+        }
+    }
+}
