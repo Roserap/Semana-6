@@ -1,0 +1,48 @@
+//Usando uma LinkedList<String>:
+//1. Adicione os elementos: "Java", "Python", "C++", "Java", "Go"
+//2. Remova apenas a primeira ocorrência de "Java"
+//3. Remova o elemento "C++"
+//4. Exiba o resultado
+
+import java.util.LinkedList;
+
+public class ListaLinguagens {
+    public static void main(String[] args) {
+        // Criar a LinkedList de String
+        LinkedList<String> linguagens = new LinkedList<>();
+        
+        // 1. Adicionar os elementos
+        System.out.println("=== Adicionando Linguagens ===");
+        linguagens.add("Java");
+        linguagens.add("Python");
+        linguagens.add("C++");
+        linguagens.add("Java");
+        linguagens.add("Go");
+        System.out.println("Lista inicial: " + linguagens);
+        System.out.println("Tamanho: " + linguagens.size());
+        
+        // 2. Remover apenas a primeira ocorrência de "Java"
+        System.out.println("\n=== Removendo a primeira ocorrência de 'Java' ===");
+        boolean removidoJava = linguagens.remove("Java");
+        System.out.println("Remoção bem-sucedida? " + removidoJava);
+        System.out.println("Lista após remover primeira 'Java': " + linguagens);
+        System.out.println("Tamanho: " + linguagens.size());
+        
+        // 3. Remover o elemento "C++"
+        System.out.println("\n=== Removendo 'C++' ===");
+        boolean removidoCpp = linguagens.remove("C++");
+        System.out.println("Remoção bem-sucedida? " + removidoCpp);
+        System.out.println("Lista após remover 'C++': " + linguagens);
+        System.out.println("Tamanho: " + linguagens.size());
+        
+        // 4. Exibir o resultado final
+        System.out.println("\n=== RESULTADO FINAL ===");
+        System.out.println("Lista final: " + linguagens);
+        System.out.println("Tamanho final: " + linguagens.size());
+        
+        System.out.println("\n=== Elementos Restantes ===");
+        for (int i = 0; i < linguagens.size(); i++) {
+            System.out.println((i + 1) + ". " + linguagens.get(i));
+        }
+    }
+}
