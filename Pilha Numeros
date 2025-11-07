@@ -1,0 +1,75 @@
+//Usando Stack<Integer>:
+//1. Empilhe os números: 2, 4, 6, 8, 10
+//2. Desempilhe até sobrar apenas dois elementos
+//3. Mostre o elemento do topo
+//4. Mostre o tamanho da pilha
+
+import java.util.Stack;
+
+public class PilhaNumeros {
+    public static void main(String[] args) {
+        // Criar a pilha usando Stack<Integer>
+        Stack<Integer> pilha = new Stack<>();
+        
+        // 1. Empilhar os números
+        System.out.println("=== Empilhando números ===");
+        pilha.push(2);
+        System.out.println("Empilhou: 2 → Pilha: " + pilha);
+        
+        pilha.push(4);
+        System.out.println("Empilhou: 4 → Pilha: " + pilha);
+        
+        pilha.push(6);
+        System.out.println("Empilhou: 6 → Pilha: " + pilha);
+        
+        pilha.push(8);
+        System.out.println("Empilhou: 8 → Pilha: " + pilha);
+        
+        pilha.push(10);
+        System.out.println("Empilhou: 10 → Pilha: " + pilha);
+        
+        System.out.println("\nPilha completa: " + pilha);
+        System.out.println("Tamanho inicial: " + pilha.size());
+        
+        // 2. Desempilhar até sobrar apenas dois elementos
+        System.out.println("\n=== Desempilhando até sobrar 2 elementos ===");
+        System.out.println("Elementos atuais: " + pilha.size());
+        System.out.println("Precisa desempilhar: " + (pilha.size() - 2) + " elementos");
+        
+        while (pilha.size() > 2) {
+            int removido = pilha.pop();
+            System.out.println("Desempilhou: " + removido + " → Pilha: " + pilha);
+        }
+        
+        System.out.println("\nRestam apenas 2 elementos na pilha");
+        
+        // 3. Mostrar o elemento do topo
+        System.out.println("\n=== Elemento do topo ===");
+        int topo = pilha.peek();
+        System.out.println("Elemento no topo: " + topo);
+        System.out.println("Pilha após peek: " + pilha);
+        System.out.println("(peek não remove o elemento)");
+        
+        // 4. Mostrar o tamanho da pilha
+        System.out.println("\n=== Tamanho da pilha ===");
+        int tamanho = pilha.size();
+        System.out.println("Tamanho atual da pilha: " + tamanho);
+        
+        // Exibição final detalhada
+        System.out.println("\n=== ESTADO FINAL DA PILHA ===");
+        System.out.println("Pilha: " + pilha);
+        System.out.println("Tamanho: " + pilha.size());
+        System.out.println("Topo: " + pilha.peek());
+        System.out.println("Está vazia? " + pilha.isEmpty());
+        
+        // Visualização da pilha
+        System.out.println("\n=== Visualização da pilha ===");
+        System.out.println("[TOPO]");
+        for (int i = pilha.size() - 1; i >= 0; i--) {
+            System.out.println("  │ " + pilha.get(i) + " │");
+        }
+        System.out.println("[BASE]");
+        
+        
+    }
+}
