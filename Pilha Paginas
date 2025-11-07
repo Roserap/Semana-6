@@ -1,0 +1,76 @@
+//Crie uma pilha e execute:
+
+//a) Empilhe as páginas: "Home", "Produtos", "Carrinho", "Pagamento"
+//b) Mostre a página atual (peek())
+//c) Volte duas páginas usando pop()
+//d) Exiba a pilha final
+
+import java.util.LinkedList;
+
+public class PilhaPaginas {
+    public static void main(String[] args) {
+        // Criar a pilha usando LinkedList
+        LinkedList<String> pilha = new LinkedList<>();
+        
+        // a) Empilhar as páginas
+        System.out.println("=== Navegando pelas páginas (empilhando) ===");
+        pilha.push("Home");
+        System.out.println("Navegou para: Home");
+        System.out.println("Pilha: " + pilha);
+        
+        pilha.push("Produtos");
+        System.out.println("Navegou para: Produtos");
+        System.out.println("Pilha: " + pilha);
+        
+        pilha.push("Carrinho");
+        System.out.println("Navegou para: Carrinho");
+        System.out.println("Pilha: " + pilha);
+        
+        pilha.push("Pagamento");
+        System.out.println("Navegou para: Pagamento");
+        System.out.println("Pilha: " + pilha);
+        
+        System.out.println("\nTotal de páginas no histórico: " + pilha.size());
+        
+        // b) Mostrar a página atual (peek)
+        System.out.println("\n=== Página atual ===");
+        String paginaAtual = pilha.peek();
+        System.out.println("Você está em: " + paginaAtual);
+        System.out.println("Pilha após peek: " + pilha);
+        System.out.println("(peek não remove da pilha)");
+        
+        // c) Voltar duas páginas usando pop()
+        System.out.println("\n=== Voltando duas páginas ===");
+        
+        String pagina1 = pilha.pop();
+        System.out.println("Saiu da página: " + pagina1);
+        System.out.println("Voltou para: " + pilha.peek());
+        System.out.println("Pilha atual: " + pilha);
+        
+        String pagina2 = pilha.pop();
+        System.out.println("\nSaiu da página: " + pagina2);
+        System.out.println("Voltou para: " + pilha.peek());
+        System.out.println("Pilha atual: " + pilha);
+        
+        // d) Exibir a pilha final
+        System.out.println("\n=== PILHA FINAL (Histórico de navegação) ===");
+        System.out.println("Páginas no histórico: " + pilha);
+        System.out.println("Total de páginas: " + pilha.size());
+        System.out.println("Página atual: " + pilha.peek());
+        
+        // Visualização do histórico
+        System.out.println("\n=== Histórico completo (do topo para base) ===");
+        int nivel = pilha.size();
+        for (String pagina : pilha) {
+            if (nivel == pilha.size()) {
+                System.out.println("[TOPO] " + nivel + ". " + pagina + " ← Você está aqui");
+            } else {
+                System.out.println("       " + nivel + ". " + pagina);
+            }
+            nivel--;
+        }
+        
+        System.out.println("\n Conceito LIFO: Last In, First Out");
+        System.out.println("   A última página visitada é a primeira a sair!");
+    }
+}
