@@ -1,0 +1,103 @@
+  //Use fila para pessoas que querem entrar e pilha para malas:
+
+//Fila: "Pessoa 1", "Pessoa 2", "Pessoa 3"
+//Pilha: "Mala A", "Mala B", "Mala C"
+//Solicite:
+//a) Atender 2 pessoas
+//b) Guardar 2 malas
+//c) Exibir situação da fila e da pilha
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class SistemaCheckin {
+    public static void main(String[] args) {
+        // Criar a fila de pessoas (FIFO)
+        Queue<String> filaPessoas = new LinkedList<>();
+        
+        // Criar a pilha de malas (LIFO)
+        Stack<String> pilhaMalas = new Stack<>();
+        
+        System.out.println("=== SISTEMA DE CHECK-IN DO AEROPORTO ===\n");
+        
+        // Estado inicial - Fila de pessoas
+        System.out.println("=== FILA DE PESSOAS (FIFO) ===");
+        filaPessoas.add("Pessoa 1");
+        filaPessoas.add("Pessoa 2");
+        filaPessoas.add("Pessoa 3");
+        System.out.println("Fila inicial: " + filaPessoas);
+        System.out.println("Total de pessoas aguardando: " + filaPessoas.size());
+        
+        // Estado inicial - Pilha de malas
+        System.out.println("\n=== PILHA DE MALAS (LIFO) ===");
+        pilhaMalas.push("Mala A");
+        pilhaMalas.push("Mala B");
+        pilhaMalas.push("Mala C");
+        System.out.println("Pilha inicial: " + pilhaMalas);
+        System.out.println("Total de malas no carrinho: " + pilhaMalas.size());
+        
+        // Visualização inicial
+        System.out.println("\n|====================================|");
+        System.out.println("|      SITUAÇÃO INICIAL                |");
+        System.out.println("|======================================|");
+        System.out.println("| FILA: [P1] → [P2] → [P3]             |");
+        System.out.println("|                                      |");
+        System.out.println("| PILHA:  [Mala C] ← Topo              |");
+        System.out.println("|         [Mala B]                     |");
+        System.out.println("|         [Mala A] ← Base              |");
+        System.out.println("|======================================|");
+        
+        // a) Atender 2 pessoas
+        System.out.println("\n=== ATENDENDO PESSOAS (usando poll) ===");
+        
+        String pessoa1 = filaPessoas.poll();
+        System.out.println("  Atendeu: " + pessoa1);
+        System.out.println("  Fila restante: " + filaPessoas);
+        
+        String pessoa2 = filaPessoas.poll();
+        System.out.println("  Atendeu: " + pessoa2);
+        System.out.println("  Fila restante: " + filaPessoas);
+        
+        System.out.println("\nPessoas atendidas: 2");
+        System.out.println("Pessoas aguardando: " + filaPessoas.size());
+        
+        // b) Guardar 2 malas
+        System.out.println("\n=== GUARDANDO MALAS (usando pop) ===");
+        
+        String mala1 = pilhaMalas.pop();
+        System.out.println("  Guardou: " + mala1);
+        System.out.println("  Pilha restante: " + pilhaMalas);
+        
+        String mala2 = pilhaMalas.pop();
+        System.out.println("  Guardou: " + mala2);
+        System.out.println("  Pilha restante: " + pilhaMalas);
+        
+        System.out.println("\nMalas guardadas: 2");
+        System.out.println("Malas no carrinho: " + pilhaMalas.size());
+        
+        // c) Exibir situação da fila e da pilha
+        System.out.println("\n|====================================|");
+        System.out.println("|      SITUAÇÃO ATUAL                  |");
+        System.out.println("|======================================|");
+        System.out.println("|  FILA DE PESSOAS                     |");
+        System.out.println("|======================================|");
+        System.out.println("| Aguardando: " + filaPessoas);
+        System.out.println("| Total: " + filaPessoas.size() + " pessoa(s)");
+        if (!filaPessoas.isEmpty()) {
+            System.out.println("║ Próxima: " + filaPessoas.peek());
+        }
+        System.out.println("|                                    |");
+        System.out.println("|====================================|");
+        System.out.println("|  PILHA DE MALAS                    |");
+        System.out.println("|====================================|");
+        System.out.println("| No carrinho: " + pilhaMalas);
+        System.out.println("| Total: " + pilhaMalas.size() + " mala(s)");
+        if (!pilhaMalas.isEmpty()) {
+            System.out.println("| Topo: " + pilhaMalas.peek());
+        }
+        System.out.println("|====================================|");
+        
+       
+    }
+}
