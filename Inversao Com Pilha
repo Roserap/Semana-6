@@ -1,0 +1,90 @@
+//Dado um array:
+//{ 7, 14, 21, 28 }
+//Peça ao aluno para:
+//a) Empilhar todos os elementos
+//b) Desempilhar (exibir cada remoção)
+//c) Verificar que a ordem agora é invertida
+
+import java.util.Stack;
+
+public class InversaoComPilha {
+    public static void main(String[] args) {
+        // Array original
+        int[] array = { 7, 14, 21, 28 };
+        
+        System.out.println("=== ARRAY ORIGINAL ===");
+        System.out.print("Array: [ ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println("]");
+        
+        // Criar a pilha
+        Stack<Integer> pilha = new Stack<>();
+        
+        // a) Empilhar todos os elementos
+        System.out.println("\n=== EMPILHANDO ELEMENTOS ===");
+        for (int i = 0; i < array.length; i++) {
+            pilha.push(array[i]);
+            System.out.println("Empilhou: " + array[i] + " → Pilha: " + pilha);
+        }
+        
+        System.out.println("\nPilha completa: " + pilha);
+        System.out.println("Tamanho da pilha: " + pilha.size());
+        
+        // Visualização da pilha
+        System.out.println("\n=== Visualização da pilha ===");
+        System.out.println("[TOPO]");
+        for (int i = pilha.size() - 1; i >= 0; i--) {
+            System.out.println("  │ " + pilha.get(i) + " │");
+        }
+        System.out.println("[BASE]");
+        
+        // b) Desempilhar (exibir cada remoção)
+        System.out.println("\n=== DESEMPILHANDO ELEMENTOS ===");
+        int[] arrayInvertido = new int[array.length];
+        int indice = 0;
+        
+        while (!pilha.isEmpty()) {
+            int removido = pilha.pop();
+            arrayInvertido[indice] = removido;
+            System.out.println("Desempilhou: " + removido + " → Pilha restante: " + pilha);
+            indice++;
+        }
+        
+        System.out.println("\nPilha está vazia: " + pilha.isEmpty());
+        
+        // c) Verificar que a ordem agora é invertida
+        System.out.println("\n=== COMPARAÇÃO: ORDEM INVERTIDA ===");
+        
+        System.out.print("Array ORIGINAL:   [ ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println("]");
+        
+        System.out.print("Array INVERTIDO:  [ ");
+        for (int num : arrayInvertido) {
+            System.out.print(num + " ");
+        }
+        System.out.println("]");
+        
+        // Verificação elemento por elemento
+        System.out.println("\n=== Verificação detalhada ===");
+        boolean invertido = true;
+        for (int i = 0; i < array.length; i++) {
+            int posicaoInvertida = array.length - 1 - i;
+            System.out.println("Posição " + i + ": " + array[i] + " → " + 
+                             "Posição " + i + " invertida: " + arrayInvertido[i] + 
+                             " (era posição " + posicaoInvertida + ")");
+            
+            if (array[i] != arrayInvertido[posicaoInvertida]) {
+                invertido = false;
+            }
+        }
+        
+        System.out.println("\n" + (invertido ? "S" : "N") + " A ordem foi invertida corretamente!");
+        
+        
+    }
+}
