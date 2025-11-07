@@ -1,0 +1,87 @@
+  //Use uma pilha (Stack<String>) para armazenar operações:
+//a) Simule as operações: "Digitar A", "Digitar B", "Digitar C"
+//b) Realize 1 operação “desfazer” usando pop()
+//c) Exiba o que ainda está na pilha
+
+import java.util.Stack;
+
+public class SistemaDesfazer {
+    public static void main(String[] args) {
+        // Criar a pilha de operações
+        Stack<String> pilhaOperacoes = new Stack<>();
+        
+        // Estado do texto
+        String texto = "";
+        
+        System.out.println("=== EDITOR DE TEXTO - SISTEMA DE DESFAZER ===\n");
+        
+        // a) Simular as operações
+        System.out.println("=== EXECUTANDO OPERAÇÕES ===");
+        
+        // Operação 1: Digitar A
+        pilhaOperacoes.push("Digitar A");
+        texto += "A";
+        System.out.println("Operação: Digitar A");
+        System.out.println("  Texto atual: \"" + texto + "\"");
+        System.out.println("  Pilha de operações: " + pilhaOperacoes);
+        System.out.println();
+        
+        // Operação 2: Digitar B
+        pilhaOperacoes.push("Digitar B");
+        texto += "B";
+        System.out.println("Operação: Digitar B");
+        System.out.println("  Texto atual: \"" + texto + "\"");
+        System.out.println("  Pilha de operações: " + pilhaOperacoes);
+        System.out.println();
+        
+        // Operação 3: Digitar C
+        pilhaOperacoes.push("Digitar C");
+        texto += "C";
+        System.out.println("Operação: Digitar C");
+        System.out.println("  Texto atual: \"" + texto + "\"");
+        System.out.println("  Pilha de operações: " + pilhaOperacoes);
+        System.out.println();
+        
+        System.out.println("Total de operações realizadas: " + pilhaOperacoes.size());
+        
+        // Visualização da pilha
+        System.out.println("\n=== Pilha de Operações ===");
+        System.out.println("[TOPO - Operação mais recente]");
+        for (int i = pilhaOperacoes.size() - 1; i >= 0; i--) {
+            System.out.println("  | " + pilhaOperacoes.get(i) + " │" + 
+                             (i == pilhaOperacoes.size() - 1 ? " ← Próxima a desfazer" : ""));
+        }
+        System.out.println("[BASE - Operação mais antiga]");
+        
+        // b) Realizar 1 operação "desfazer" usando pop()
+        System.out.println("\n=== DESFAZENDO ÚLTIMA OPERAÇÃO (Ctrl+Z) ===");
+        if (!pilhaOperacoes.isEmpty()) {
+            String operacaoDesfeita = pilhaOperacoes.pop();
+            texto = texto.substring(0, texto.length() - 1); // Remove última letra
+            
+            System.out.println("⟲ Operação desfeita: " + operacaoDesfeita);
+            System.out.println("  Texto atual: \"" + texto + "\"");
+            System.out.println("  Pilha restante: " + pilhaOperacoes);
+        }
+        
+        // c) Exibir o que ainda está na pilha
+        System.out.println("\n=== ESTADO ATUAL DO SISTEMA ===");
+        System.out.println("Texto no editor: \"" + texto + "\"");
+        System.out.println("Operações que podem ser desfeitas: " + pilhaOperacoes);
+        System.out.println("Número de operações restantes: " + pilhaOperacoes.size());
+        
+        // Mostrando operações disponíveis
+        System.out.println("\n=== Operações Disponíveis para Desfazer ===");
+        if (!pilhaOperacoes.isEmpty()) {
+            int posicao = pilhaOperacoes.size();
+            for (int i = pilhaOperacoes.size() - 1; i >= 0; i--) {
+                System.out.println(posicao + ". " + pilhaOperacoes.get(i));
+                posicao--;
+            }
+            System.out.println("\nPróxima operação a desfazer: " + pilhaOperacoes.peek());
+        } else {
+            System.out.println("Nenhuma operação para desfazer.");
+        }
+                
+    }
+}
