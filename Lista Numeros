@@ -1,0 +1,53 @@
+//Crie uma LinkedList<Integer> contendo os números:
+//10, 20, 30, 40, 50
+//Em seguida:
+//a) Insira o valor 5 no início
+//b) Insira o valor 60 no final
+//c) Insira o valor 25 na posição 3
+//d) Exiba a lista final
+
+//Criando uma LinkedList<Integer> contendo os números:
+import java.util.LinkedList;
+
+public class ListaNumeros {
+    public static void main(String[] args) {
+        // Criar a LinkedList de Integer com os números iniciais
+        LinkedList<Integer> numeros = new LinkedList<>();
+        numeros.add(10);
+        numeros.add(20);
+        numeros.add(30);
+        numeros.add(40);
+        numeros.add(50);
+        
+        System.out.println("=== Lista Inicial ===");
+        System.out.println(numeros);
+        
+        // a) Inserir o valor 5 no início
+        System.out.println("\n=== Inserindo 5 no início ===");
+        numeros.addFirst(5);
+        System.out.println(numeros);
+        
+        // b) Inserir o valor 60 no final
+        System.out.println("\n=== Inserindo 60 no final ===");
+        numeros.addLast(60);
+        System.out.println(numeros);
+        
+        // c) Inserir o valor 25 na posição 3
+        System.out.println("\n=== Inserindo 25 na posição 3 ===");
+        numeros.add(3, 25);
+        System.out.println(numeros);
+        System.out.println("Valor na posição 3: " + numeros.get(3));
+        
+        // d) Exibir a lista final
+        System.out.println("\n=== Lista Final ===");
+        System.out.println(numeros);
+        
+        // Exibindo de forma detalhada
+        System.out.println("\n=== Exibição Detalhada ===");
+        for (int i = 0; i < numeros.size(); i++) {
+            System.out.println("Posição " + i + ": " + numeros.get(i));
+        }
+        
+        System.out.println("\nTamanho da lista: " + numeros.size());
+    }
+}
