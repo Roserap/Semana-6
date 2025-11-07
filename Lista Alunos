@@ -1,0 +1,44 @@
+//Crie uma LinkedList<String> para armazenar nomes de alunos.
+//Execute as operações:
+//a) Adicionar 5 nomes
+//b) Remover o primeiro nome da lista
+//c) Exibir o último nome
+//d) Exibir todos os nomes usando for-each
+
+import java.util.LinkedList;
+
+public class ListaAlunos {
+    public static void main(String[] args) {
+        // Criar a LinkedList de String
+        LinkedList<String> alunos = new LinkedList<>();
+        
+        // a) Adicionar 5 nomes
+        System.out.println("=== Adicionando 5 alunos ===");
+        alunos.add("Maria Silva");
+        alunos.add("João Santos");
+        alunos.add("Ana Costa");
+        alunos.add("Pedro Oliveira");
+        alunos.add("Carla Souza");
+        System.out.println("Alunos adicionados: " + alunos);
+        System.out.println("Total de alunos: " + alunos.size());
+        
+        // b) Remover o primeiro nome da lista
+        System.out.println("\n=== Removendo o primeiro aluno ===");
+        String primeiroRemovido = alunos.removeFirst();
+        System.out.println("Aluno removido: " + primeiroRemovido);
+        System.out.println("Lista atualizada: " + alunos);
+        
+        // c) Exibir o último nome
+        System.out.println("\n=== Exibindo o último aluno ===");
+        String ultimoAluno = alunos.getLast();
+        System.out.println("Último aluno da lista: " + ultimoAluno);
+        
+        // d) Exibir todos os nomes usando for-each
+        System.out.println("\n=== Exibindo todos os alunos (for-each) ===");
+        for (String aluno : alunos) {
+            System.out.println("- " + aluno);
+        }
+        
+        System.out.println("\nTotal final de alunos: " + alunos.size());
+    }
+}
