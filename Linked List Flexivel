@@ -1,0 +1,71 @@
+//Crie uma LinkedList<Integer> e use métodos de fila e pilha:
+//a) addFirst(10)
+//b) addLast(20)
+//c) push(30)
+//d) pop()
+//e) Exiba a lista final
+
+import java.util.LinkedList;
+
+public class LinkedListFlexivel {
+    public static void main(String[] args) {
+        // Criar a LinkedList
+        LinkedList<Integer> lista = new LinkedList<>();
+        
+        System.out.println("=== LINKEDLIST: FILA + PILHA EM UMA ESTRUTURA ===\n");
+        System.out.println("Lista inicial: " + lista);
+        System.out.println("Tamanho: " + lista.size());
+        
+        // a) addFirst(10) - Adiciona no início
+        System.out.println("\n=== a) addFirst(10) ===");
+        lista.addFirst(10);
+        System.out.println("Adicionou 10 no INÍCIO");
+        System.out.println("Lista: " + lista);
+        System.out.println("Visualização: [10]");
+        
+        // b) addLast(20) - Adiciona no final
+        System.out.println("\n=== b) addLast(20) ===");
+        lista.addLast(20);
+        System.out.println("Adicionou 20 no FINAL");
+        System.out.println("Lista: " + lista);
+        System.out.println("Visualização: [10] ← → [20]");
+        
+        // c) push(30) - Adiciona no início (comportamento de pilha)
+        System.out.println("\n=== c) push(30) ===");
+        lista.push(30);
+        System.out.println("Empilhou 30 no INÍCIO (comportamento de pilha)");
+        System.out.println("Lista: " + lista);
+        System.out.println("Visualização: [30] ← → [10] ← → [20]");
+        System.out.println(" push() = addFirst() em LinkedList");
+        
+        // Visualização detalhada antes do pop
+        System.out.println("\n=== Estado antes do pop() ===");
+        System.out.println("|==============================|");
+        System.out.println("│  INÍCIO/TOPO    →    FINAL   │");
+        System.out.println("|==============================|");
+        System.out.println("│    [30]  →  [10]  →  [20]    │");
+        System.out.println("│     ↑                        │");
+        System.out.println("│   Próximo a sair com pop()   │");
+        System.out.println("|==============================|");
+        
+        // d) pop() - Remove do início (comportamento de pilha)
+        System.out.println("\n=== d) pop() ===");
+        Integer removido = lista.pop();
+        System.out.println("Desempilhou do INÍCIO: " + removido);
+        System.out.println("Lista: " + lista);
+        System.out.println("Visualização: [10] ← → [20]");
+        System.out.println(" pop() = removeFirst() em LinkedList");
+        
+        // e) Exibir a lista final
+        System.out.println("\n|==================================|");
+        System.out.println("|      LISTA FINAL                   |");
+        System.out.println("|====================================|");
+        System.out.println("| Lista: " + lista + "                  ");
+        System.out.println("| Tamanho: " + lista.size() + "         ");
+        System.out.println("|                                    |");
+        System.out.println("| Primeiro elemento: " + lista.getFirst() + "|");
+        System.out.println("| Último elemento: " + lista.getLast() + "             |");
+        System.out.println("|====================================|");
+        
+       }
+}
