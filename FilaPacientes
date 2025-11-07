@@ -1,0 +1,76 @@
+//Crie uma fila normal de pacientes:
+//"Lucas", "Bruna", "José", "Ana"
+//Peça ao aluno para:
+//a) Adicionar "Maria" no final
+//b) Atender 3 pacientes com poll()
+//c) Mostrar quem será o próximo a ser atendido
+//d) Exibir os pacientes restantes
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class FilaPacientes {
+    public static void main(String[] args) {
+        // Criar a Queue de pacientes
+        Queue<String> pacientes = new LinkedList<>();
+        
+        // Adicionar os pacientes iniciais
+        System.out.println("=== Fila inicial de pacientes ===");
+        pacientes.add("Lucas");
+        pacientes.add("Bruna");
+        pacientes.add("José");
+        pacientes.add("Ana");
+        System.out.println("Pacientes na fila: " + pacientes);
+        System.out.println("Total de pacientes: " + pacientes.size());
+        
+        // a) Adicionar "Maria" no final
+        System.out.println("\n=== Adicionando Maria no final da fila ===");
+        pacientes.add("Maria");
+        System.out.println("Fila atualizada: " + pacientes);
+        System.out.println("Total de pacientes: " + pacientes.size());
+        
+        // b) Atender 3 pacientes com poll()
+        System.out.println("\n=== Atendendo 3 pacientes ===");
+        
+        String paciente1 = pacientes.poll();
+        System.out.println("1º paciente atendido: " + paciente1);
+        System.out.println("Fila atual: " + pacientes);
+        
+        String paciente2 = pacientes.poll();
+        System.out.println("2º paciente atendido: " + paciente2);
+        System.out.println("Fila atual: " + pacientes);
+        
+        String paciente3 = pacientes.poll();
+        System.out.println("3º paciente atendido: " + paciente3);
+        System.out.println("Fila atual: " + pacientes);
+        
+        // c) Mostrar quem será o próximo a ser atendido
+        System.out.println("\n=== Próximo paciente ===");
+        if (!pacientes.isEmpty()) {
+            String proximo = pacientes.peek();
+            System.out.println("Próximo a ser atendido: " + proximo);
+        } else {
+            System.out.println("Não há mais pacientes na fila.");
+        }
+        
+        // d) Exibir os pacientes restantes
+        System.out.println("\n=== PACIENTES RESTANTES NA FILA ===");
+        System.out.println("Fila restante: " + pacientes);
+        System.out.println("Total restante: " + pacientes.size());
+        
+        if (!pacientes.isEmpty()) {
+            System.out.println("\n=== Ordem de atendimento ===");
+            int posicao = 1;
+            for (String paciente : pacientes) {
+                System.out.println(posicao + "º - " + paciente);
+                posicao++;
+            }
+        }
+        
+        // Informações adicionais
+        System.out.println("\n=== Estatísticas ===");
+        System.out.println("Total de pacientes atendidos: 3");
+        System.out.println("Pacientes aguardando: " + pacientes.size());
+        System.out.println("Fila está vazia? " + pacientes.isEmpty());
+    }
+}
